@@ -2,12 +2,15 @@
 
 ## 0. Global conventions
 
-- **Reference periods:** Q-1 = months 10 to 12, Q0 = months 13 to 15. Months 16 to 18 are the follow-up window for 90-day outcomes.
+- **Reference periods:** Q-1 = months 10 to 12 (2025-10-01 to 2025-12-31). Q0 = months 13 to 15 (2026-01-01 to 2026-03-31). Months 16 to 18 (2026-04-01 to 2026-06-30) are the follow-up window for 90-day outcomes.
 - **Valid order:** An order is valid when its status is `delivered` or `refunded`. Both were fulfilled. `cancelled` orders are excluded from GMV, repeat, frequency, and delivery metrics.
 - **Currency:** Generic "$".
 - **Time zone:** All timestamps use the platform's local time zone.
 - **Hour definition:** Any hourly analysis uses `placed_ts` to determine the order hour. The evening peak period of 18:00 to 21:30 therefore has the same meaning across SQL, Python, and Power BI.
 - **Left-censoring assumption:** All customers' first orders fall inside the data window, so no existing customers are mislabelled as new in month 1.
+
+---
+
 ## 1. Revenue and profitability
 
 | KPI | Definition | Formula | Grain |
@@ -22,6 +25,8 @@
 
 **Support cost parameter:** Support cost is assumed to be **$2.50 per order with at least one support ticket**. If an order has multiple tickets, the $2.50 cost is applied once to that order.
 
+---
+
 ## 2. Customer and retention
 
 | KPI | Definition | Formula | Grain |
@@ -34,7 +39,9 @@
 | Reduced-frequency customer | Customer who ordered in both 90-day windows, but whose latest-window order count is at least 50% lower than the previous window | See Section 4 | Customer |
 | Bad-experience churn | A lost customer whose last valid order was late, refunded, or had at least one support ticket | See Section 4 | Customer |
 
-**90-day repeat precision:** A customer is a repeater when their second valid order was **placed ≤ 90 days after the timestamp of their first valid order**. Cohorts without a full 90 days of follow-up are excluded. The last measurable cohort is month 15, with the qualifying first-order cutoff defined by the available 90-day follow-up window.
+**90-day repeat precision:** A customer is a repeater when their second valid order was placed at or before `first_valid_order_ts + 90 days`. A customer is eligible only if their first valid order timestamp is before `2026-04-01 00:00:00` (i.e. on or before 2026-03-31). The last measurable cohort is therefore month 15. The latest eligible first order (`2026-03-31 23:59:59`) has follow-up through `2026-06-29 23:59:59`, which is inside the data window (ends 2026-06-30). Cohorts from months 16 to 18 are excluded because their follow-up would be cut off by the end of the data.
+
+---
 
 ## 3. Operations
 
@@ -49,11 +56,15 @@
 
 Orders with a missing `delivered_ts` are **not classified as late** and are excluded from the late-rate denominator.
 
+---
+
 ## 4. Churn types (at a snapshot date)
 
 - **Snapshot date:** End of month 15, **2026-03-31**.
 - **Previous 90-day window:** **2025-10-03 to 2025-12-31**.
 - **Latest 90-day window:** **2026-01-01 to 2026-03-31**.
+
+Definitions:
 
 - **Lost:** Customer placed at least one valid order during the previous 90-day window but placed no valid orders during the latest 90-day window.
 - **Reduced-frequency:** Customer placed at least one valid order in both 90-day windows, and their latest-window order count is at least 50% lower than their previous-window order count.
@@ -64,34 +75,72 @@ Customers who ordered only before the previous window (already dormant), or whos
 
 **Bad-experience churn is a subset of Lost, not a separate bucket. Lost therefore splits into Bad-experience and Other.**
 
+---
+
 ## 5. GMV bridge definitions
 
-The GMV bridge explains the change in GMV from Q-1 to Q0 by classifying customers based on their behavior across the two periods.
+The GMV bridge explains the change in GMV from Q-1 to Q0 by classifying every customer who ordered in either quarter into exactly one category.
 
-| Bridge category | Definition |
-|---|---|
-| **New** | Customer whose first valid order occurs in Q0. Their Q0 GMV is classified as New GMV. |
-| **Repeat** | Customer who had valid orders in Q-1 and continued ordering in Q0 without meeting the reduced-frequency definition. Their Q0 GMV is classified as Repeat GMV. |
-| **Reduced** | Customer who ordered in both Q-1 and Q0 but whose Q0 order count is at least 50% lower than Q-1. Their Q0 GMV is classified as Reduced GMV. |
-| **Lost** | Customer who had valid orders in Q-1 but no valid orders in Q0. Their Q-1 GMV is classified as Lost GMV when explaining the change. |
-| **Reactivated** | Customer who was previously classified as Lost at the snapshot and placed a valid order in months 16 to 18. Reactivation is reported separately as a follow-up outcome and is not counted as Q0 GMV. |
+| Category | Definition | Contribution to GMV change |
+|---|---|---|
+| **New** | First valid order falls in Q0 | + Q0 GMV |
+| **Returning** | First valid order before Q-1, no valid order in Q-1, at least one valid order in Q0 | + Q0 GMV |
+| **Lost** | At least one valid order in Q-1, none in Q0 | − Q-1 GMV |
+| **Reduced** | Ordered in both quarters, and Q0 order count is at least 50% lower than Q-1 order count | Q0 GMV − Q-1 GMV (negative) |
+| **Repeat** | Ordered in both quarters, and not Reduced | Q0 GMV − Q-1 GMV (can be positive or negative) |
 
-The bridge should reconcile the movement between Q-1 and Q0 without double-counting customers.
+**Bridge identity:**
+
+> **GMV(Q0) − GMV(Q-1) = New + Returning − Lost + ΔReduced + ΔRepeat**
+
+**Reconciliation check:** The five components must sum exactly to the total GMV change. This check is run in SQL, repeated in Excel, and shown on the dashboard.
+
+**Naming note:** "Returning" is a bridge category only. "Reactivated" keeps its Section 4 meaning (a Lost customer who orders again in months 16 to 18) and is reported separately as a follow-up outcome. It is not part of the bridge.
+
+**Period-length note:** The bridge uses calendar quarters (Q-1 = 92 days, Q0 = 90 days). The churn snapshot uses two 90-day windows. The 2-day difference is deliberate, so the two analyses are not expected to match exactly.
+
+---
 
 ## 6. Edge-case decisions
 
 1. **Cancelled orders are excluded from GMV** because they were never fulfilled and therefore do not represent completed customer demand or merchandise value.
+
 2. **Refunded orders stay in GMV** because the order was fulfilled and represents a completed transaction. The refund is then subtracted when calculating net revenue.
+
 3. **First order = first valid order**, not the signup date, because retention should measure behavior after the customer's first actual transaction.
+
 4. **Cohorts without a full 90 days of follow-up are excluded from the repeat rate** because newer cohorts would otherwise appear to have lower retention simply because they have had less time to return.
+
 5. **Duplicate `order_id` records:** Keep the record with the latest `updated_at` timestamp and remove the other duplicate records. The `orders` table will therefore include an `updated_at` field.
+
 6. **Orders with missing `delivered_ts`:** Exclude them from delivery-time and late-order metrics because delivery duration cannot be calculated reliably. They can remain in other valid-order metrics when the order otherwise qualifies as valid.
+
 7. **Customers with only one order in a window:** Include them normally in the frequency calculation because one valid order is still customer activity. Customers with zero orders are not active customers and are not included in the denominator.
+
 8. **Refund source of truth:** `refund_amount` is calculated as the sum of ticket refunds associated with an order. An order is considered refunded when this summed refund amount is greater than zero. The `orders.status` field is treated as a validation field rather than an independent refund source.
+
 9. **Support cost:** Apply a flat **$2.50 support cost once per order with at least one support ticket**, regardless of the number of tickets, because the data model does not contain an order-level support cost field.
+
 10. **Late-order threshold:** An order is late only when delivery is more than 10 minutes beyond the promised ETA. This threshold remains the same in SQL, Python, Excel, and Power BI.
+
 11. **Delivered/refund mismatch:** If `orders.status = 'delivered'` but the aggregated ticket refund amount is greater than zero, classify the order as refunded for KPI calculations and flag the mismatch as a data-quality issue.
+
 12. **Refunded/zero-refund mismatch:** If `orders.status = 'refunded'` but the aggregated ticket refund amount is zero, classify the order as **not refunded** for KPI calculations and flag the mismatch as a data-quality issue.
+
 13. **Missing delivery timestamp and late flag:** If `delivered_ts` is missing, the order is not classified as late and is excluded from the late-rate calculation. Therefore, missing delivery data cannot by itself cause a customer to be classified as bad-experience churn.
+
 14. **Timestamp for hourly analysis:** `placed_ts` determines the order hour because it represents when the customer initiated the order and allows operational demand periods to be compared consistently.
+
 15. **Left-censoring:** All customers' first orders occur within the 18-month data window. This allows month-1 customers to be correctly identified as new without assuming they had earlier orders outside the dataset.
+
+16. **Bridge reconciliation:** The five GMV bridge components must sum exactly to the total change in GMV between Q-1 and Q0. Any difference means a customer was missed or double-counted.
+
+---
+
+## 7. Validation checks (run in Phase 3)
+
+- GMV bridge components sum exactly to GMV(Q0) − GMV(Q-1)
+- Every customer who ordered in Q-1 or Q0 falls into exactly one bridge category
+- Lost = Bad-experience + Other (no overlap, no gap)
+- `orders.placed_ts` equals `delivery_events.placed_ts` for every order
+- Status mismatches (edge cases 11 and 12) are counted and reported, not silently fixed
