@@ -6,3 +6,5 @@ __pycache__/
 data/raw/*.csv
 data/clean/*.csv
 data/interim/*.csv
+data/zesto.duckdb
+run_output.txt
