@@ -1,123 +1,60 @@
-Business Brief: Why Repeat Orders Fell While Revenue Rose
+# Business Brief: Why Repeat Orders Fell While Revenue Rose
 
-1. Company (fictional)
+## 1. Company (fictional)
 
-Name: Zesto
+- **Name:** Zesto
+- **What it does:** On-demand platform for restaurant food and grocery delivery from dark stores
+- **Scale:** ~25,000 active customers, 8 delivery zones (A to H), ~300 merchants, ~600 riders
+- **Revenue model:** Merchant commission + delivery fee paid by customers
+- **Data window:** 18 months of history (2025-01-01 to 2026-06-30)
+- **Focus period:** Q-1 = months 10 to 12, Q0 = months 13 to 15
+- **Follow-up window:** Months 16 to 18 are used to measure 90-day repeat behavior for the Q0 cohorts
 
-What it does: On-demand platform for restaurant food and grocery delivery from dark stores
-
-Scale: ~25,000 active customers, 8 delivery zones (A to H), ~300 merchants, ~600 riders
-
-Revenue model: Merchant commission + delivery fee paid by customers
-
-Data window: 18 months of history (2025-01-01 to 2026-06-30)
-
-Focus period: Q-1 = months 10 to 12, Q0 = months 13 to 15
-
-Follow-up window: Months 16 to 18 are used to measure 90-day repeat behavior for the Q0 cohorts
-
-2. The situation
+## 2. The situation
 
 In Q0 compared with Q-1, GMV increased by 18%, which looks positive at first. However, the 90-day repeat rate dropped from 41% to 32%. At the same time, the refund rate increased from 3% to 5.5%, while discount spend increased from 9% to 14% of GMV.
 
 The main question is whether the revenue growth is actually healthy or whether the business is relying more on discounts while losing existing customers.
 
-3. Stakeholders and their hypotheses
+## 3. Stakeholders and their hypotheses
 
-Stakeholder
+| Stakeholder | Belief | Evidence they'd want |
+|---|---|---|
+| VP Growth | Retention is fine, so we should spend more on acquiring users | CAC, new-customer volume |
+| COO | Riders and delivery problems are causing customers to churn | Delivery time, late orders, rider availability |
+| CFO | Promotions are destroying margin | Contribution margin per order |
+| Head of CX | Customers are unhappy, but the main cause is unclear | Complaint themes, refunds, customer issues |
 
-Belief
+## 4. Business questions
 
-Evidence they'd want
+1. Is the growth healthy? What does the GMV bridge look like (new, repeat, reduced, lost, reactivated)?
+2. Who are we losing — customers who completely churned, customers ordering less often, or customers who stopped after a bad experience?
+3. What is contributing to the repeat-rate decline — delivery time, merchant preparation, rider supply, promotions, zone, or time slot?
+4. Which promotions create repeat customers, which mainly attract one-time buyers, and which result in negative contribution margin?
+5. Which customer segments are worth trying to retain?
+6. Did the retention-offer A/B test actually improve repeat behavior, and did the additional orders justify the cost?
+7. What actions should the business take, what will they cost, and how much revenue or margin could potentially be recovered?
 
-VP Growth
+## 5. Approach
 
-Retention is fine, so we should spend more on acquiring users
-
-CAC, new-customer volume
-
-COO
-
-Riders and delivery problems are causing customers to churn
-
-Delivery time, late orders, rider availability
-
-CFO
-
-Promotions are destroying margin
-
-Contribution margin per order
-
-Head of CX
-
-Customers are unhappy, but the main cause is unclear
-
-Complaint themes, refunds, customer issues
-
-4. Business questions
-
-Is the growth healthy? What does the GMV bridge look like (new, repeat, reduced, lost, reactivated)?
-
-Who are we losing — customers who completely churned, customers ordering less often, or customers who stopped after a bad experience?
-
-What is contributing to the repeat-rate decline — delivery time, merchant preparation, rider supply, promotions, zone, or time slot?
-
-Which promotions create repeat customers, which mainly attract one-time buyers, and which result in negative contribution margin?
-
-Which customer segments are worth trying to retain?
-
-Did the retention-offer A/B test actually improve repeat behavior, and did the additional orders justify the cost?
-
-What actions should the business take, what will they cost, and how much revenue or margin could potentially be recovered?
-
-5. Approach
-
-Hypothesis
-
-How I test it
-
-What would prove it wrong
-
-VP Growth: Retention is fine, buy more users
-
-SQL cohorts: compare repeat rate by acquisition channel and cohort month
-
-Repeat rate is stable across channels and cohorts
-
-COO: Riders and delivery cause churn
-
-Python: compare repeat rates for late vs on-time first orders using logistic regression while controlling for zone, time slot and promo; separately check rider assignment time
-
-Late orders show no repeat-rate gap once controls are added
-
-CFO: Promos destroy margin
-
-Excel: compare contribution margin and repeat rate by promo type
-
-Promo orders have positive margin and repeat at a similar rate to baseline
-
-Head of CX: Customers are unhappy, cause unknown
-
-GenAI: classify complaint text into themes and validate the results against about 100 hand-labelled tickets
-
-The themes do not add useful insight beyond the existing ticket categories
+| Hypothesis | How I test it | What would prove it wrong |
+|---|---|---|
+| **VP Growth:** Retention is fine, buy more users | SQL cohorts: compare repeat rate by acquisition channel and cohort month | Repeat rate is stable across channels and cohorts |
+| **COO:** Riders and delivery cause churn | Python: compare repeat rates for late vs on-time first orders using logistic regression while controlling for zone, time slot and promo; separately check rider assignment time | Late orders show no repeat-rate gap once controls are added |
+| **CFO:** Promos destroy margin | Excel: compare contribution margin and repeat rate by promo type | Promo orders have positive margin and repeat at a similar rate to baseline |
+| **Head of CX:** Customers are unhappy, cause unknown | GenAI: classify complaint text into themes and validate the results against about 100 hand-labelled tickets | The themes do not add useful insight beyond the existing ticket categories |
 
 I’ll combine these results through customer segmentation to decide who is worth saving, use the A/B test to estimate and price the potential retention fix, and use Power BI to present the main trends and business recommendations to leadership.
 
-6. Scope and non-goals
+## 6. Scope and non-goals
 
-Not doing: Demand forecasting
+- Not doing: Demand forecasting
+- Not doing: Building a recommendation system
+- Not doing: Real-time dashboards or production data pipelines
 
-Not doing: Building a recommendation system
+## 7. Assumptions
 
-Not doing: Real-time dashboards or production data pipelines
-
-7. Assumptions
-
-All data is synthetic and generated by python/generate_data.py
-
-Currency is a generic "$" placeholder; zones are generic (A to H)
-
-90-day repeat rate = share of customers whose first order was in month M who place a 2nd order within 90 days of that first order. Cohorts need a full 90 days of follow-up, so the last measurable cohort is month 15.
-
-Contribution margin = commission + delivery fee − discount − refund − rider cost − payment fee − support cost
+- All data is synthetic and generated by `python/generate_data.py`
+- Currency is a generic "$" placeholder; zones are generic (A to H)
+- 90-day repeat rate = share of customers whose first order was in month M who place a 2nd order within 90 days of that first order. Cohorts need a full 90 days of follow-up, so the last measurable cohort is month 15.
+- Contribution margin = commission + delivery fee − discount − refund − rider cost − payment fee − support cost
