@@ -27,6 +27,8 @@ def check_orders(orders, latent, customers):
     s = v.groupby("q")[["discount_amount", "order_value"]].sum()
     print("\nDiscount rate by quarter:\n", (s.discount_amount / s.order_value).round(3))
     print("\nGMV by quarter:\n", s.order_value.round(0))
+    print("GMV growth Q0 vs Q-1: %.1f%%" % (100 * (s.order_value["Q0"] / s.order_value["Q-1"] - 1)))
+    print("AOV by quarter:\n", (s.order_value / v.groupby("q").size()).round(2))
 
     v = v.sort_values(["customer_id", "order_ts"])
     v["rk"] = v.groupby("customer_id").cumcount()

@@ -1,0 +1,157 @@
+
+Injected issues per issue_id:
+ issue_id
+1      947
+2     1765
+3      529
+4      368
+5     3788
+6      551
+7      368
+8      653
+9      176
+10     779
+11     551
+12    1838
+dtype: int64
+merchants: (300, 8) | riders: (600, 5) | promotions: (12, 8) | customers: (32660, 7) | orders: (189394, 17) | tickets: (15574, 8)
+
+Total orders: 189394 | cancelled: 5564
+Valid orders per quarter:
+ q
+Q-1       36751
+Q0        45163
+other    101916
+dtype: int64
+
+Late rate by quarter:
+ q
+Q-1      0.122
+Q0       0.143
+other    0.133
+Name: is_late, dtype: float64
+
+Discount rate by quarter:
+ q
+Q-1      0.090
+Q0       0.135
+other    0.113
+dtype: float64
+
+GMV by quarter:
+ q
+Q-1       750109.0
+Q0        884088.0
+other    2047727.0
+Name: order_value, dtype: float64
+GMV growth Q0 vs Q-1: 17.9%
+AOV by quarter:
+ q
+Q-1      20.41
+Q0       19.58
+other    20.09
+dtype: float64
+
+90-day repeat rate by cohort quarter:
+ q
+Q-1    0.418
+Q0     0.329
+Name: repeat90, dtype: float64
+
+Repeat rate by channel and quarter:
+ q             Q-1    Q0
+channel                
+affiliate    0.32  0.28
+organic      0.46  0.40
+paid_social  0.28  0.24
+referral     0.56  0.45
+search       0.41  0.32
+
+Repeat rate, first order late vs on-time:
+ is_late
+False    0.394
+True     0.193
+Name: repeat90, dtype: float64
+
+Repeat rate, first_order_flat vs not:
+ first_order_flat
+False    0.439
+True     0.141
+Name: repeat90, dtype: float64
+
+Late flag vs timestamps, mismatches: 0
+Timestamp order violations: 0
+
+Tickets: 15574 | orders with a ticket: 15112 | text is NULL: 0.1
+
+Ticket rate by quarter:
+ q
+Q-1      0.070
+Q0       0.092
+other    0.082
+Name: has_ticket, dtype: float64
+
+Refund rate by quarter (orders with refund > 0):
+ q
+Q-1      0.033
+Q0       0.050
+other    0.043
+Name: refund, dtype: float64
+
+Status counts:
+ status
+delivered    175963
+refunded       7867
+cancelled      5564
+Name: count, dtype: int64
+Status vs refund mismatches: 0
+Refund greater than order value: 0
+
+CM per order by quarter (full KPI definition):
+ q
+Q-1      2.86
+Q0       1.72
+other    2.25
+Name: cm, dtype: float64
+
+CM per order, first_order_flat vs not (all quarters):
+ first_order_flat
+False    2.39
+True    -1.46
+Name: cm, dtype: float64
+
+Share of 'other' tickets that are really missing-item, by quarter:
+ q
+Q-1      0.123
+Q0       0.250
+other    0.186
+Name: true_theme, dtype: float64
+
+Missing-item tickets per grocery order, by zone:
+ q       Q-1     Q0
+zone              
+A     0.019  0.028
+B     0.018  0.024
+C     0.021  0.030
+D     0.025  0.144
+E     0.026  0.016
+F     0.022  0.026
+G     0.024  0.157
+H     0.023  0.029
+
+Segments among lapsing customers (before sampling):
+ segment
+other            8094
+deal_seeker      6966
+loyal_lapsing     937
+Name: count, dtype: int64
+
+Reorder rate within 90 days of assignment:
+                             n  reorder_rate
+segment       variant                      
+deal_seeker   control    1500         0.075
+              treatment  1500         0.089
+loyal_lapsing control     468         0.094
+              treatment   469         0.217
+loyal_lapsing: lift 12.3 pts (95% CI 7.8 to 16.9) | offer cost $420 | cost per incremental reorder $7.25
+deal_seeker: lift 1.4 pts (95% CI -0.6 to 3.4) | offer cost $400 | cost per incremental reorder $19.05
