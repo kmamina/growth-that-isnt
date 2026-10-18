@@ -5,3 +5,4 @@ __pycache__/
 .DS_Store
 data/raw/*.csv
 data/clean/*.csv
+data/interim/*.csv
