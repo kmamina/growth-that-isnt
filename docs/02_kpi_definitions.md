@@ -142,5 +142,5 @@ The GMV bridge explains the change in GMV from Q-1 to Q0 by classifying every cu
 - GMV bridge components sum exactly to GMV(Q0) − GMV(Q-1)
 - Every customer who ordered in Q-1 or Q0 falls into exactly one bridge category
 - Lost = Bad-experience + Other (no overlap, no gap)
-- `orders.placed_ts` equals `delivery_events.placed_ts` for every order
+- orders.order_ts equals delivery_events.placed_ts for every order
 - Status mismatches (edge cases 11 and 12) are counted and reported, not silently fixed

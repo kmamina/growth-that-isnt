@@ -27,7 +27,7 @@ The main question is whether the revenue growth is actually healthy or whether t
 
 ## 4. Business questions
 
-1. Is the growth healthy? What does the GMV bridge look like (new, repeat, reduced, lost, reactivated)?
+1. Is the growth healthy? What does the GMV bridge look like (new, returning, lost, reduced, repeat)?
 2. Who are we losing — customers who completely churned, customers ordering less often, or customers who stopped after a bad experience?
 3. What is contributing to the repeat-rate decline — delivery time, merchant preparation, rider supply, promotions, zone, or time slot?
 4. Which promotions create repeat customers, which mainly attract one-time buyers, and which result in negative contribution margin?

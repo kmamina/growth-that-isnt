@@ -50,7 +50,7 @@ Columns: customer_id, experiment_id, variant, assigned_date, offer_cost
 ## Decisions
 1. orders.order_ts and delivery_events.placed_ts are the same moment. If they differ, that is a data-quality issue.
 2. These are not stored; we calculate them in SQL: refund amount per order (sum of tickets), support cost ($2.50 per order with a ticket), late flag, contribution margin, and customer segments.
-3. A/B test: customers are assigned on 2026-04-01. They are customers who were active in Q0 but ordering less often. The result is whether they place a valid order within 90 days (by 2026-06-30).
+3. A/B test: assigned on 2026-04-01 to customers with no valid order in the 45 days before that date who are in the Loyal-but-lapsing or Deal-seekers segment. Assignment is 50/50 within each segment. The outcome is reorder rate within 90 days of assignment (a valid order by 2026-06-30).
 4. Caveat: the offer also affects reactivation in months 16 to 18, so reactivation numbers for assigned customers are not a clean baseline.
 5. Orders run from 2025-01-01 to 2026-06-30, with real timestamps (date and time), not just dates.
 
