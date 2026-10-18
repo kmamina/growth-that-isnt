@@ -7,6 +7,8 @@ from gen_orders import make_orders
 from gen_delivery import make_delivery
 from gen_tickets import make_tickets
 from gen_experiment import make_experiment, check_experiment
+from inject_dq import inject
+from config import RAW
 
 
 def quarter(ts):
@@ -118,6 +120,18 @@ def main():
     assignments.to_csv(INTERIM / "experiment_assignments.csv", index=False)
     ex.to_csv(INTERIM / "experiment_latent.csv", index=False)     # hidden: never used in Phase 3
 
+    RAW.mkdir(parents=True, exist_ok=True)
+    c_raw, o_raw, d_raw, t_raw, log_df = inject(rng, customers, orders, deliv, tickets)
+    merchants.to_csv(RAW / "merchants.csv", index=False)
+    riders.to_csv(RAW / "riders.csv", index=False)
+    promotions.to_csv(RAW / "promotions.csv", index=False)
+    assignments.to_csv(RAW / "experiment_assignments.csv", index=False)
+    c_raw.to_csv(RAW / "customers.csv", index=False)
+    o_raw.to_csv(RAW / "orders.csv", index=False)
+    d_raw.to_csv(RAW / "delivery_events.csv", index=False)
+    t_raw.to_csv(RAW / "support_tickets.csv", index=False)
+    log_df.to_csv(RAW / "injection_log.csv", index=False)
+    print("\nInjected issues per issue_id:\n", log_df.groupby("issue_id").size())
     print("merchants:", merchants.shape, "| riders:", riders.shape, "| promotions:", promotions.shape,
           "| customers:", customers.shape, "| orders:", orders.shape, "| tickets:", tickets.shape)
     check_orders(orders, latent, customers)

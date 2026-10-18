@@ -97,3 +97,21 @@ EXP_MAX_PER_SEGMENT = 3000
 EXP_LIFT = {"loyal_lapsing": 0.12, "deal_seeker": 0.0}   # planted lift (reorder rate, absolute)
 EXP_REDEEM_BASE = 0.60       # share of "would have ordered anyway" treated customers who use the credit
 EXP_EXTRA_ORDERS = 0.8       # mean extra orders in the window for customers the offer brought back
+
+
+# ---- Step 2.7: data-quality injection rates ----
+DQ_RATES = {
+    1: 0.005,   # duplicate order_id (orders)
+    2: 0.010,   # missing delivered_ts (delivery_events)
+    3: 0.003,   # delivered_ts before picked_up_ts
+    4: 0.002,   # order_value <= 0
+    5: 0.020,   # zone text inconsistent
+    6: 0.003,   # merchant_id not in merchants
+    7: 0.002,   # summed ticket refunds exceed order_value
+    8: 0.020,   # customers.first_order_date wrong
+    9: 0.001,   # delivery time over 600 minutes
+    10: 0.050,  # complaint_text empty string
+    11: 0.003,  # orders.order_ts differs from placed_ts
+    12: 0.010,  # status disagrees with ticket refunds
+}
+ZONE_VARIANTS = ["{z}", "{z_lower}", "Zone {z}", " {z} "]
