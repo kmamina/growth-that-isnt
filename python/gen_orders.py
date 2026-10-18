@@ -100,6 +100,7 @@ def make_orders(rng, customers, traits, merchants, promotions):
                   rng.lognormal(np.log(17), 0.45, N)).clip(6, 150)
     flat_first = is_first & first_flat[cid]
     ov = np.where(flat_first & (ov < 12), 12.0, ov).round(2)
+    ov = np.where(month_index(o.order_ts).to_numpy() >= 13, ov * cfg.Q0_AOV_MULT, ov).round(2)
     items = np.clip(np.round(ov / rng.uniform(5, 9, N)), 1, 25).astype(int)
     dist = np.clip(rng.gamma(3.0, 1.0, N), 0.5, 10).round(2)
     delivery_fee = (2.8 + 0.4 * dist).round(2)
@@ -138,6 +139,7 @@ def make_orders(rng, customers, traits, merchants, promotions):
     pval = pinfo.discount_value.reindex(promo_id).fillna(0).to_numpy()
     disc = np.select([ptype == "pct_off", ptype == "cashback", ptype == "free_delivery"],
                      [pval * ov, pval * ov, delivery_fee], default=pval)
+    disc = np.where(promo_id == 1, disc, disc * cfg.DISC_SCALE)
     disc = np.where(promo_id == 0, 0, np.minimum(disc, 0.6 * ov)).round(2)
     pay_fee = (0.2 + 0.012 * (ov - disc)).round(2)
 

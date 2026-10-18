@@ -65,8 +65,8 @@ LATE_REPEAT_P = 0.20        # non-repeaters who still return after day 90
 GROCERY_SHARE = 0.18
 CANCEL_P = 0.04             # only for order number 3 and up
 
-PROMO_P0 = 0.30             # promo use probability = (P0 + P1 * sensitivity) * multiplier
-PROMO_P1 = 0.45
+PROMO_P0 = 0.15             # promo use probability = (P0 + P1 * sensitivity) * multiplier
+PROMO_P1 = 0.70
 PROMO_Q0_MULT = 1.45        # months >= 13 (drives discount rate up)
 PROMO_WEIGHTS = {2: 3, 3: 3, 4: 1, 5: 2, 6: 1.5, 7: 3, 8: 2, 9: 1, 10: 2, 12: 2}
 
@@ -115,3 +115,5 @@ DQ_RATES = {
     12: 0.010,  # status disagrees with ticket refunds
 }
 ZONE_VARIANTS = ["{z}", "{z_lower}", "Zone {z}", " {z} "]
+Q0_AOV_MULT = 0.955         # basket-size multiplier for orders from month 13 onward
+DISC_SCALE = 1.8           # depth multiplier for all promos except first_order_flat
