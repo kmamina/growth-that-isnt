@@ -1,0 +1,9 @@
+check,result,rows_wrong
+order_id set matches answer key,PASS,0
+zone matches answer key,PASS,0
+order_ts matches answer key,PASS,0
+status matches answer key,PASS,0
+order_value matches key (valid rows),PASS,0
+invalid merchant_id nulled,PASS,0
+first_order_date matches key (valid-order rule),PASS,0
+delivered_ts matches key (unflagged rows),PASS,0
