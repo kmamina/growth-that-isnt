@@ -1,0 +1,13 @@
+issue_id,action,rows_affected
+1,duplicate order rows removed,947
+2,missing delivered_ts flagged,1765
+3,sequence errors flagged and nulled,529
+4,invalid order_value flagged (excluded from KPIs),368
+5,zone text standardised,3788
+6,invalid merchant_id set to NULL,551
+7,ticket refunds scaled,374
+8,customers with first_order_date corrected,709
+9,extreme duration flagged and nulled,176
+10,empty complaint text converted,0
+11,order_ts overwritten from placed_ts,551
+12,status corrected from ticket refunds,1838
