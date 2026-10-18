@@ -1,0 +1,13 @@
+issue_id,issue,detected,injected,difference
+1,duplicate order_id (extra rows),947,947,0
+2,missing delivered_ts on valid orders,1788,1765,23
+3,delivered_ts before picked_up_ts,529,529,0
+4,order_value <= 0,368,368,0
+5,inconsistent zone text,3788,3788,0
+6,merchant_id not in merchants,551,551,0
+7,summed refunds exceed order_value,398,368,30
+8,first_order_date mismatch,647,653,-6
+9,delivery time > 600 min,176,176,0
+10,complaint_text empty string,0,779,-779
+11,order_ts <> placed_ts,551,551,0
+12,status vs ticket refund mismatch,1838,1838,0
