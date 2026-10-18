@@ -77,6 +77,7 @@ Channel base rates are reduced in Q0 by lateness (finding 1) and promo mix (find
 5. Fixed random seed (42).
 6. Planted percentages are target ranges, not exact values for every subgroup.
 7. Phase 3 computes everything from the data; this file is only the answer key.
+8. Observed values after calibration are in docs/06_generation_results.md.
 
 ## E. Expected story (direction of the investigation, not a conclusion)
 
