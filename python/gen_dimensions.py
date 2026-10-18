@@ -65,7 +65,7 @@ def make_promotions():
         (8,  "Grocery Free Del",  "free_delivery",    0.0,  "2025-05-01", "2026-06-30", 25.0, "grocery_shoppers"),
         (9,  "Festive Bundle",    "bundle",           5.0,  "2025-10-01", "2025-11-15", 35.0, "all"),
         (10, "Winter Cashback",   "cashback",         0.12, "2025-12-01", "2026-02-28", 20.0, "all"),
-        (11, "Win-back 20 Off",   "pct_off",          0.20, "2026-04-01", "2026-06-30", 15.0, "lapsed_customers"),
+        (11, "Win-back $5 Credit", "loyalty_credit",  5.0,  "2026-04-01", "2026-06-30", 6.0,  "experiment_treatment"),
         (12, "Referral Credit",   "loyalty_credit",   4.0,  "2025-01-01", "2026-06-30", 12.0, "referred_customers"),
     ]
     cols = ["promo_id", "promo_name", "promo_type", "discount_value",
