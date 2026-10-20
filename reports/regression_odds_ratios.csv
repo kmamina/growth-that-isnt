@@ -1,0 +1,11 @@
+,odds_ratio,ci_low,ci_high,p_value
+"C(channel, Treatment('organic'))[T.affiliate]",0.568,0.496,0.651,0.0
+"C(channel, Treatment('organic'))[T.paid_social]",0.477,0.43,0.531,0.0
+"C(channel, Treatment('organic'))[T.referral]",1.356,1.208,1.522,0.0
+"C(channel, Treatment('organic'))[T.search]",0.766,0.686,0.856,0.0
+late,0.353,0.31,0.403,0.0
+flat,0.217,0.193,0.243,0.0
+other_promo,0.999,0.919,1.086,0.985
+cf,0.949,0.871,1.033,0.225
+peak,0.973,0.899,1.052,0.491
+grocery,1.017,0.921,1.123,0.738
