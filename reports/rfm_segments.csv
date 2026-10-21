@@ -1,0 +1,6 @@
+rfm_segment,customers,recency_days,orders,cm_per_customer,promo_share
+middle,8299,103.93,3.07,7.23,0.55
+champions,5921,15.18,13.12,31.76,0.46
+hibernating,5709,290.4,1.0,2.12,0.48
+new_or_promising,2717,20.62,1.0,0.36,0.72
+at_risk_high_freq,2496,225.97,8.64,24.39,0.37

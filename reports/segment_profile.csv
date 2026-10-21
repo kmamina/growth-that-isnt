@@ -1,0 +1,7 @@
+rule_segment,lapsing,customers,orders,promo_share,cm_per_order,cm_per_customer,late_share
+deal_seeker,False,4087,5.04,0.89,-0.09,4.45,0.14
+deal_seeker,True,6962,1.93,0.96,-0.38,0.79,0.15
+loyal,False,765,12.43,0.12,3.9,47.95,0.13
+loyal,True,932,9.27,0.11,3.99,36.78,0.12
+other,False,4303,11.26,0.3,2.83,29.71,0.13
+other,True,8093,4.01,0.13,3.84,12.31,0.15

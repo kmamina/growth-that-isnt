@@ -1,0 +1,7 @@
+q,grp,customers,repeat_90d,cm90,orders90
+Q-1,first_order_flat,583,0.151,1.123,1.901
+Q-1,no_promo,3223,0.458,11.271,3.624
+Q-1,other_promo,1889,0.431,5.917,3.504
+Q0,first_order_flat,2579,0.138,-0.353,1.788
+Q0,no_promo,2243,0.443,9.583,3.602
+Q0,other_promo,2583,0.42,3.901,3.416

@@ -1,0 +1,500 @@
+ticket_id,complaint_text,my_label
+3733,Delivery was late again at dinner time,late_delivery
+10754,"Still waiting, the app kept showing a delay",late_delivery
+2341,Loyalty points are not showing in my account,app_account
+10934,Order arrived very late,late_delivery
+6129,Charged twice for one order,payment_issue
+3687,Delivery was late again at dinner time,late_delivery
+1001,Delivery took over an hour,other_unclear
+8009,Packaging was leaking,food_quality
+9074,Payment deducted but order failed,other_unclear
+8363,"Still waiting, the app kept showing a delay",late_delivery
+14340,Food was cold because the rider was so slow,late_delivery
+10990,Asked for chicken but got veg,other_unclear
+76,Delivery was late again at dinner time,late_delivery
+14743,Rider got lost and the order was delayed,late_delivery
+12095,Bag felt light and some items were not delivered,other_unclear
+6229,Food was cold because the rider was so slow,late_delivery
+5751,Waited far longer than the estimated time,other_unclear
+6992,Wrong amount charged,payment_issue
+10808,Cannot find my order history,app_account
+11488,Loyalty points are not showing in my account,app_account
+8941,"Missing items again, this is the second time",missing_items
+12068,Please update my delivery address,app_account
+870,Waited far longer than the estimated time,other_unclear
+1651,Wrong item delivered,wrong_item
+15119,Food was cold because the rider was so slow,late_delivery
+5762,"Still waiting, the app kept showing a delay",late_delivery
+1127,How do I change my registered phone number?,app_account
+13301,Delivery took over an hour,other_unclear
+1366,"Still waiting, the app kept showing a delay",late_delivery
+6219,Delivery took over an hour,other_unclear
+5481,Rider got lost and the order was delayed,late_delivery
+109,Rider got lost and the order was delayed,late_delivery
+2781,Packaging was leaking,food_quality
+1365,"Still waiting, the app kept showing a delay",late_delivery
+10666,Delivery was late again at dinner time,late_delivery
+9666,Rider got lost and the order was delayed,late_delivery
+10606,Promo code did not apply at checkout,app_account
+1399,Delivery was late again at dinner time,late_delivery
+398,Waited far longer than the estimated time,other_unclear
+11315,Waited far longer than the estimated time,other_unclear
+1648,Order arrived very late,late_delivery
+12705,Milk and eggs were not in the bag,missing_items
+5564,Packaging was leaking,food_quality
+12792,Waited far longer than the estimated time,other_unclear
+11230,Rider was impolite on the phone,rider_behaviour
+12962,Promo code did not apply at checkout,app_account
+5884,Received someone else's order,wrong_item
+7300,Delivery took over an hour,other_unclear
+10618,Delivery took over an hour,other_unclear
+9091,Food was cold because the rider was so slow,late_delivery
+12976,Vegetables I ordered were not inside the package,other_unclear
+14224,App crashed while placing the order,app_account
+2749,Delivery was late again at dinner time,late_delivery
+14355,Delivery was late again at dinner time,late_delivery
+5204,Waited far longer than the estimated time,other_unclear
+9516,Food was cold because the rider was so slow,late_delivery
+12653,Food was cold because the rider was so slow,late_delivery
+5041,Need an invoice for this order,app_account
+3290,"Still waiting, the app kept showing a delay",late_delivery
+2278,Rider got lost and the order was delayed,late_delivery
+10211,Asked for chicken but got veg,other_unclear
+1823,Delivery took over an hour,other_unclear
+4759,Refund to my card has not arrived yet,payment_issue
+11915,Delivery was late again at dinner time,late_delivery
+14970,Please update my delivery address,app_account
+11015,App crashed while placing the order,app_account
+446,Order arrived very late,late_delivery
+1169,Delivery took over an hour,other_unclear
+8917,Order arrived very late,late_delivery
+38,Bag felt light and some items were not delivered,other_unclear
+4261,Waited far longer than the estimated time,other_unclear
+15240,Order arrived very late,late_delivery
+10454,Paid for 6 items but only received 4,other_unclear
+11231,Rider got lost and the order was delayed,late_delivery
+6923,Delivery took over an hour,other_unclear
+10633,Waited far longer than the estimated time,other_unclear
+8005,Vegetables were not fresh,food_quality
+14095,Rider got lost and the order was delayed,late_delivery
+7054,The meal tasted off,food_quality
+12561,Loyalty points are not showing in my account,app_account
+4794,Wrong amount charged,payment_issue
+11461,Need an invoice for this order,app_account
+6760,Rider was impolite on the phone,rider_behaviour
+9005,Item was damaged on arrival,food_quality
+11144,"Still waiting, the app kept showing a delay",late_delivery
+14478,Cannot find my order history,app_account
+13691,Delivery took over an hour,other_unclear
+1363,Received someone else's order,wrong_item
+4704,Delivery was late again at dinner time,late_delivery
+12692,Delivery took over an hour,other_unclear
+318,Cannot find my order history,app_account
+6763,Rider was impolite on the phone,rider_behaviour
+3046,The meal tasted off,food_quality
+12907,Delivery was late again at dinner time,late_delivery
+12299,Cannot find my order history,app_account
+9094,Delivery was late again at dinner time,late_delivery
+6462,"Still waiting, the app kept showing a delay",late_delivery
+15048,Waited far longer than the estimated time,other_unclear
+14875,Rider got lost and the order was delayed,late_delivery
+13545,Delivery was late again at dinner time,late_delivery
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
