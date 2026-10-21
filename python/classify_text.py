@@ -7,13 +7,13 @@ DB = ROOT / "data" / "zesto.duckdb"
 
 # Ordered rules: first match wins. Patterns are lower-case regexes.
 RULES = [
-    ("missing_items", r"missing|short by|not inside|did not arrive|not in the bag|only received|not delivered|felt light"),
-    ("wrong_item",    r"wrong item|someone else|different size|asked for"),
-    ("payment_issue", r"charged|payment|refund to my card|wrong amount"),
-    ("late_delivery", r"\blate\b|delay|over an hour|so slow|longer than|lost and|still waiting"),
-    ("food_quality",  r"stale|not fresh|leaking|tasted off|damaged"),
-    ("rider_behaviour", r"impolite"),
-    ("app_account",   r"app crashed|promo code|invoice|address|phone number|order history|loyalty points"),
+    ("missing_items", r"missing|short by|not inside|did not arrive|not in the bag|only received|not delivered|felt light|forgot|incomplete"),
+    ("wrong_item",    r"wrong item|someone else|different size|asked for|instead of"),
+    ("payment_issue", r"charged|payment|refund to my card|wrong amount|billed"),
+    ("late_delivery", r"\blate\b|delay|over an hour|so slow|longer than|lost and|still waiting|forever"),
+    ("food_quality",  r"stale|not fresh|leaking|tasted off|damaged|soggy"),
+    ("rider_behaviour", r"impolite|shouted"),
+    ("app_account",   r"app crashed|promo code|invoice|address|phone number|order history|loyalty points|freez"),
 ]
 
 

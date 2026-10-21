@@ -1,0 +1,101 @@
+ticket_id,complaint_text,my_label,predicted
+3733.0,Delivery was late again at dinner time,late_delivery,late_delivery
+10754.0,"Still waiting, the app kept showing a delay",late_delivery,late_delivery
+2341.0,Loyalty points are not showing in my account,app_account,app_account
+10934.0,Order arrived very late,late_delivery,late_delivery
+6129.0,Charged twice for one order,payment_issue,payment_issue
+3687.0,Delivery was late again at dinner time,late_delivery,late_delivery
+1001.0,Delivery took over an hour,late_delivery,late_delivery
+8009.0,Packaging was leaking,food_quality,food_quality
+9074.0,Payment deducted but order failed,payment_issue,payment_issue
+8363.0,"Still waiting, the app kept showing a delay",late_delivery,late_delivery
+14340.0,Food was cold because the rider was so slow,late_delivery,late_delivery
+10990.0,Asked for chicken but got veg,wrong_item,wrong_item
+76.0,Delivery was late again at dinner time,late_delivery,late_delivery
+14743.0,Rider got lost and the order was delayed,late_delivery,late_delivery
+12095.0,Bag felt light and some items were not delivered,missing_items,missing_items
+6229.0,Food was cold because the rider was so slow,late_delivery,late_delivery
+5751.0,Waited far longer than the estimated time,late_delivery,late_delivery
+6992.0,Wrong amount charged,payment_issue,payment_issue
+10808.0,Cannot find my order history,app_account,app_account
+11488.0,Loyalty points are not showing in my account,app_account,app_account
+8941.0,"Missing items again, this is the second time",missing_items,missing_items
+12068.0,Please update my delivery address,app_account,app_account
+870.0,Waited far longer than the estimated time,late_delivery,late_delivery
+1651.0,Wrong item delivered,wrong_item,wrong_item
+15119.0,Food was cold because the rider was so slow,late_delivery,late_delivery
+5762.0,"Still waiting, the app kept showing a delay",late_delivery,late_delivery
+1127.0,How do I change my registered phone number?,app_account,app_account
+13301.0,Delivery took over an hour,late_delivery,late_delivery
+1366.0,"Still waiting, the app kept showing a delay",late_delivery,late_delivery
+6219.0,Delivery took over an hour,late_delivery,late_delivery
+5481.0,Rider got lost and the order was delayed,late_delivery,late_delivery
+109.0,Rider got lost and the order was delayed,late_delivery,late_delivery
+2781.0,Packaging was leaking,food_quality,food_quality
+1365.0,"Still waiting, the app kept showing a delay",late_delivery,late_delivery
+10666.0,Delivery was late again at dinner time,late_delivery,late_delivery
+9666.0,Rider got lost and the order was delayed,late_delivery,late_delivery
+10606.0,Promo code did not apply at checkout,app_account,app_account
+1399.0,Delivery was late again at dinner time,late_delivery,late_delivery
+398.0,Waited far longer than the estimated time,late_delivery,late_delivery
+11315.0,Waited far longer than the estimated time,late_delivery,late_delivery
+1648.0,Order arrived very late,late_delivery,late_delivery
+12705.0,Milk and eggs were not in the bag,missing_items,missing_items
+5564.0,Packaging was leaking,food_quality,food_quality
+12792.0,Waited far longer than the estimated time,late_delivery,late_delivery
+11230.0,Rider was impolite on the phone,rider_behaviour,rider_behaviour
+12962.0,Promo code did not apply at checkout,app_account,app_account
+5884.0,Received someone else's order,wrong_item,wrong_item
+7300.0,Delivery took over an hour,late_delivery,late_delivery
+10618.0,Delivery took over an hour,late_delivery,late_delivery
+9091.0,Food was cold because the rider was so slow,late_delivery,late_delivery
+12976.0,Vegetables I ordered were not inside the package,missing_items,missing_items
+14224.0,App crashed while placing the order,app_account,app_account
+2749.0,Delivery was late again at dinner time,late_delivery,late_delivery
+14355.0,Delivery was late again at dinner time,late_delivery,late_delivery
+5204.0,Waited far longer than the estimated time,late_delivery,late_delivery
+9516.0,Food was cold because the rider was so slow,late_delivery,late_delivery
+12653.0,Food was cold because the rider was so slow,late_delivery,late_delivery
+5041.0,Need an invoice for this order,app_account,app_account
+3290.0,"Still waiting, the app kept showing a delay",late_delivery,late_delivery
+2278.0,Rider got lost and the order was delayed,late_delivery,late_delivery
+10211.0,Asked for chicken but got veg,wrong_item,wrong_item
+1823.0,Delivery took over an hour,late_delivery,late_delivery
+4759.0,Refund to my card has not arrived yet,payment_issue,payment_issue
+11915.0,Delivery was late again at dinner time,late_delivery,late_delivery
+14970.0,Please update my delivery address,app_account,app_account
+11015.0,App crashed while placing the order,app_account,app_account
+446.0,Order arrived very late,late_delivery,late_delivery
+1169.0,Delivery took over an hour,late_delivery,late_delivery
+8917.0,Order arrived very late,late_delivery,late_delivery
+38.0,Bag felt light and some items were not delivered,missing_items,missing_items
+4261.0,Waited far longer than the estimated time,late_delivery,late_delivery
+15240.0,Order arrived very late,late_delivery,late_delivery
+10454.0,Paid for 6 items but only received 4,missing_items,missing_items
+11231.0,Rider got lost and the order was delayed,late_delivery,late_delivery
+6923.0,Delivery took over an hour,late_delivery,late_delivery
+10633.0,Waited far longer than the estimated time,late_delivery,late_delivery
+8005.0,Vegetables were not fresh,food_quality,food_quality
+14095.0,Rider got lost and the order was delayed,late_delivery,late_delivery
+7054.0,The meal tasted off,food_quality,food_quality
+12561.0,Loyalty points are not showing in my account,app_account,app_account
+4794.0,Wrong amount charged,payment_issue,payment_issue
+11461.0,Need an invoice for this order,app_account,app_account
+6760.0,Rider was impolite on the phone,rider_behaviour,rider_behaviour
+9005.0,Item was damaged on arrival,food_quality,food_quality
+11144.0,"Still waiting, the app kept showing a delay",late_delivery,late_delivery
+14478.0,Cannot find my order history,app_account,app_account
+13691.0,Delivery took over an hour,late_delivery,late_delivery
+1363.0,Received someone else's order,wrong_item,wrong_item
+4704.0,Delivery was late again at dinner time,late_delivery,late_delivery
+12692.0,Delivery took over an hour,late_delivery,late_delivery
+318.0,Cannot find my order history,app_account,app_account
+6763.0,Rider was impolite on the phone,rider_behaviour,rider_behaviour
+3046.0,The meal tasted off,food_quality,food_quality
+12907.0,Delivery was late again at dinner time,late_delivery,late_delivery
+12299.0,Cannot find my order history,app_account,app_account
+9094.0,Delivery was late again at dinner time,late_delivery,late_delivery
+6462.0,"Still waiting, the app kept showing a delay",late_delivery,late_delivery
+15048.0,Waited far longer than the estimated time,late_delivery,late_delivery
+14875.0,Rider got lost and the order was delayed,late_delivery,late_delivery
+13545.0,Delivery was late again at dinner time,late_delivery,late_delivery
