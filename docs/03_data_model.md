@@ -2,7 +2,7 @@
 
 ## Tables
 
-### customers (~25,000 rows)
+### customers (~36,660 rows)
 Primary key: customer_id
 Columns: customer_id, signup_date, acquisition_channel, home_zone, first_order_date, device, is_subscriber
 Channels: organic, paid_social, referral, search, affiliate
@@ -19,7 +19,7 @@ Columns: rider_id, home_zone, join_date, employment_type, active_flag
 Primary key: promo_id
 Columns: promo_id, promo_name, promo_type, discount_value, start_date, end_date, min_order_value, target_audience
 
-### orders (~300,000 rows, plus some injected duplicates)
+### orders (~189,400 rows, plus some injected duplicates)
 Primary key: order_id
 Foreign keys: customer_id, merchant_id, promo_id (promo_id can be empty)
 Columns: order_id, customer_id, merchant_id, promo_id, order_ts, zone, order_type, items_count, order_value, discount_amount, delivery_fee, commission_amount, rider_cost, payment_fee, status, promised_eta_min, updated_at
@@ -29,12 +29,12 @@ Primary key and foreign key: order_id
 Foreign key: rider_id
 Columns: order_id, rider_id, placed_ts, merchant_accepted_ts, food_ready_ts, rider_assigned_ts, picked_up_ts, delivered_ts, distance_km
 
-### support_tickets (~40,000 rows)
+### support_tickets (~15,600 rows)
 Primary key: ticket_id
 Foreign keys: order_id, customer_id
 Columns: ticket_id, order_id, customer_id, created_ts, category, complaint_text, refund_amount, resolution_status
 
-### experiment_assignments (~6,000 rows)
+### experiment_assignments (~3,900 rows)
 Primary key: customer_id
 Columns: customer_id, experiment_id, variant, assigned_date, offer_cost
 

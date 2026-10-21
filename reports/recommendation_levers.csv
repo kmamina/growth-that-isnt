@@ -1,0 +1,5 @@
+lever,basis,low_$,high_$,assumption,confidence
+1. Remove or redesign first_order_flat,per quarter of new customers,910,11708,"Floor = every flat customer lost. Mid = 20% lost, stayers worth 80%.","Medium: cost sign is measured, size depends on unmeasured loss rate. Pilot first."
+2. Fix C/F evening-peak lateness,per quarter,3197,6394,Low = half the excess removed. High = all of it. Break-even spend per peak order = $1.40,"Medium: late-vs-on-time gap is large and tested, but cost of the fix is unknown."
+3. Fix the two dark stores,per quarter,964,1927,Refunds + support cost on excess tickets only. Low = half fixed.,"High on the cost, but it excludes any customer-loss effect, which the data does not link."
+"4. Win-back offer, loyal lapsing only",per 90 days,-235,556,95% interval of net CM. Break-even in 90 days.,"High that it moves behaviour, low that it pays back within 90 days. Pilot a smaller credit."
